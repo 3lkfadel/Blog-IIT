@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../Documents/VS code"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Blog IIT"
+	}
+}

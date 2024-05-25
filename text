@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{background-color: #fff;}
+
+.menu-block{
+    display: flex;
+    align-items:  center;
+    justify-content: space-between;
+    padding: 5px 20px;
+    color:  #fff;
+    background-color: #ffffff;
+    margin:  0 auto;
+    max-width: 1700px;
+    list-style-type: none;
+    width: 100%;
+}
+
+.menu-block ul li{
+    list-style-type: none;
+    display: inline-flex;
+    color: #be0909;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
+.menu-block ul li a{
+    text-decoration: none;
+    color: #e50101;
+}
+
+.menu-block ul li :hover{
+    color: black;
+    text-decoration: underline;
+    
+}
+
+.menu-block > a{
+    font: 500 23px 'Times New Roman', sans-serif;
+}
+
+.header_logo{
+    width: 300px;
+    height: 100px;
+}
+
+nav{
+    font: 500 23px 'Times New Roman', sans-serif;
+}
+
+.presentation_school button{
+    padding: 10px;
+    background-color: rgb(208, 24, 24);
+    border: none;
+    font: 500 23px 'Times New Roman', sans-serif;
+}
+
+.presentation_school button a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.presentation_school{
+   background-image: image-set('images/Image diplome.webp');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 700 30px 'Times New Roman', sans-serif;
+    font-weight: 400;
+    margin:  0 auto;
+    max-width: 1700px;
+    height: 725px;
+    padding: 0 auto;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 100px;
+    background-color: rgb(41, 45, 164);
+}
+
+.column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.column button{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: transparent;
+    font: 500 18px 'Times New Roman', sans-serif;
+}
+
+.row p{
+    font: 500 18px 'Times New Roman', sans-serif;
+}
+
+#p2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-all{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font: 500 18px 'Times New Roman', sans-serif;
+}
+
+.row-all button{
+    padding: 20px 70px 20px 70px;
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+
+.row-top{
+    margin: 0 0 0 15px;
+}
+
+.row-top button{
+    padding: 15px 50px 15px 50px;
+    font: 500 18px 'Times New Roman', sans-serif;
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+
+.Titre{
+    margin-bottom: 15px;
+    font: 700 23px 'Times New Roman', sans-serif;
+}
+
+.Tags{
+    margin-top: 15px;
+    font: 700 23px 'Times New Roman', sans-serif;
+}
+
+footer{
+    background-color: black;
+    height: 200px;
+}
+.card img{
+    max-width: 100%;    
+    height: 300px;
+    
+}
+.card{
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    justify-content: space-between;
+    
+}
+
+
+.card
+
+footer {
+    background-color: rgb(41, 45, 164);
+    color: #fff;
+    padding: 40px 0;
+}
+
+.container2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-info,
+.footer-links,
+.social-links {
+    flex: 1;
+}
+
+.footer-links ul,
+.social-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li,
+.social-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links a,
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links a:hover,
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+.pornhub{
+    
+    border: 2px solid#ffffff;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.pornhub:hover{
+    background-color: #be0909;
+    transform: scale(1.05);
+}
+.button_all{
+    border: 2px solid black;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.button_all:hover {
+    background-color: #be0909; /* Couleur de fond au survol */
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+  }

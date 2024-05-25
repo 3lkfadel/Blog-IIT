@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail de l'Article</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .article {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .article img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .article h1 {
+            margin: 20px 0;
+            color: #333;
+        }
+        .article p {
+            line-height: 1.6;
+            color: #666;
+        }
+        .related-articles {
+            margin-top: 40px;
+        }
+        .related-articles h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .related-articles .card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .related-articles .card:hover {
+            transform: translateY(-5px);
+        }
+        .related-articles img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .related-articles .card-content {
+            padding: 20px;
+        }
+        .related-articles .card-content h3 {
+            margin: 0;
+            color: #333;
+        }
+        .related-articles .card-content p {
+            margin: 10px 0 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="article" id="article-detail">
+        <!-- Les détails de l'article seront insérés ici par JavaScript -->
+    </div>
+
+    <div class="related-articles" id="related-articles">
+        <h2>Articles similaires</h2>
+        <!-- Les articles similaires seront insérés ici par JavaScript -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id');
+            let articles = [];
+
+            fetch('articles.json')
+                .then(response => response.json())
+                .then(data => {
+                    articles = data;
+                    const article = articles.find(a => a.id == articleId);
+                    if (article) {
+                        displayArticleDetails(article);
+                        displayRelatedArticles(article);
+                    } else {
+                        document.getElementById('article-detail').innerText = 'Article non trouvé.';
+                    }
+                })
+                .catch(error => console.error('Erreur lors du chargement de l\'article:', error));
+
+            function displayArticleDetails(article) {
+                const detailContainer = document.getElementById('article-detail');
+                detailContainer.innerHTML = `
+                    <h1>${article.title}</h1>
+                    <img src="${article.image}" alt="${article.title}">
+                    <p>${article.content}</p>
+                `;
+            }
+
+            function displayRelatedArticles(currentArticle) {
+                const relatedArticlesContainer = document.getElementById('related-articles');
+                relatedArticlesContainer.innerHTML = '<h2>Articles similaires</h2>';
+                const relatedArticles = articles.filter(a => 
+                    a.id !== currentArticle.id && 
+                    a.tags.some(tag => currentArticle.tags.includes(tag))
+                ).slice(0, 3); // Limiter à 3 articles similaires
+                relatedArticles.forEach(article => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <img src="${article.image}" alt="${article.title}">
+                        <div class="card-content">
+                            <h3>${article.title}</h3>
+                            <p>${article.summary}</p>
+                        </div>
+                    `;
+                    card.addEventListener('click', () => {
+                        window.location.href = `article.html?id=${article.id}`;
+                    });
+                    relatedArticlesContainer.appendChild(card);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
